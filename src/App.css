@@ -1,38 +1,80 @@
 .App {
+  font-family: 'Arial', sans-serif;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
+.Navbar {
+  padding: 20px;
   background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.Navbar a {
+  margin: 0 15px;
   color: white;
+  text-decoration: none;
 }
 
-.App-link {
-  color: #61dafb;
+.Resume, .About, .Projects {
+  padding: 50px 0;
+  border-bottom: 1px solid #eee;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Resume {
+  padding: 50px 0;
+  border-bottom: 1px solid #eee;
+  max-width: 80%;
+  margin: 0 auto;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.Resume p {
+  color: #666;
+  margin-top: 20px;
+}
+
+.Game {
+  display: flex;
+  justify-content: center;  
+      
+  height: 100vh;            
+}
+
+.loader {
+  border: 16px solid #f3f3f3;
+  border-top: 16px solid #3498db;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.carousel-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  width: 100%;
+  height: 300px;
+}
+
+.carousel-item {
+  min-width: 100%;
+  height: 300px;
+  scroll-snap-align: start;
+  scroll-behavior: smooth;
+  transition: 300ms ease;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
