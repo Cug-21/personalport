@@ -1,34 +1,48 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
-
 function Carousel({ images }) {
-  const carouselRef = useRef(null);
+  const ITEM_WIDTH = 200;
+  const VISIBLE_IMAGES = 3;
+  const CENTER_IMAGE = Math.floor(VISIBLE_IMAGES / 2);
+
+  const [currentIndex, setCurrentIndex] = useState(CENTER_IMAGE);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if (carouselRef.current) {
-        const scrollPosition = carouselRef.current.scrollLeft;
-        const maxScroll = carouselRef.current.scrollWidth - carouselRef.current.clientWidth;
-
-        // Scroll to the beginning if we've reached the end
-        if (scrollPosition >= maxScroll) {
-          carouselRef.current.scrollLeft = 0;
-        } else {
-          carouselRef.current.scrollLeft += 200; // Pixels scrolled
-        }
-      }
-    }, 2000); // Time interval
+      setCurrentIndex((prev) => (prev + 1) % images.length);
+    }, 2000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [images]);
+
+  const adjustedImages = [...images.slice(-CENTER_IMAGE), ...images, ...images.slice(0, CENTER_IMAGE)];
 
   return (
-    <div className="carousel-container" ref={carouselRef}>
-      {images.map((imgSrc, index) => (
-        <div key={index} className="carousel-item">
-          <img src={imgSrc} alt={`Carousel ${index}`} />
-        </div>
-      ))}
+    <div className="carousel-container">
+      <div 
+        className="arrow arrow-left" 
+        onClick={() => {
+          setCurrentIndex((prev) => (prev - 1 + adjustedImages.length) % adjustedImages.length);
+        }}
+      >❮</div>
+
+      <div 
+        className="carousel-item-container" 
+        style={{ transform: `translateX(-${(currentIndex - CENTER_IMAGE) * ITEM_WIDTH}px)` }}
+      >
+        {adjustedImages.map((imgSrc, index) => (
+          <div key={index} className="carousel-item">
+            <img src={imgSrc} alt={`Carousel ${index}`} />
+          </div>
+        ))}
+      </div>
+
+      <div 
+        className="arrow arrow-right" 
+        onClick={() => {
+          setCurrentIndex((prev) => (prev + 1) % adjustedImages.length);
+        }}
+      >❯</div>
     </div>
   );
 }

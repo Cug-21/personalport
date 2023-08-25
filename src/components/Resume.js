@@ -8,7 +8,7 @@ function Resume() {
             <iframe 
                 src="/resume.pdf" 
                 width="100%" 
-                height="500px"
+                height="1000px"
                 title="Resume">
             </iframe>
         </div>

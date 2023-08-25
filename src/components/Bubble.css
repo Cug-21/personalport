@@ -1,0 +1,39 @@
+
+.bubble-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit; /* Ensure text color remains consistent */
+}
+
+.bubble-link:hover .bubble {
+    transform: scale(1.05); /* Bubble enlarges a bit on hover */
+}
+
+.bubble-container {
+    display: flex;
+    flex-direction: column; /* stack items vertically inside each bubble container */
+    align-items: center;  /* center items horizontally */
+    margin-bottom: 20px;  /* spacing between bubbles */
+    width: 60%;  /* adjust as necessary, or use max-width for larger screens */
+    background-color: #ffffff;  /* background color for the box */
+    padding: 1rem;
+    border-radius: 5px;  /* rounded corners */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);  /* subtle shadow */
+}
+
+.bubble {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #3498db;
+    margin-bottom: 15px;  /* spacing between bubble and website name */
+}
+
+
+.bubble-description {
+    font-size: 16px;
+    margin-top: 0.5rem;  /* spacing between website name and description */
+    line-height: 1.5;  /* improved readability for multi-line text */
+    text-align: center;  /* center-align the text */
+}

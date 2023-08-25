@@ -22,13 +22,41 @@ function evaluateBoard(board) {
   return value;
 }
 
+function quiescenceSearch(chessInstance, alpha, beta) {
+  let standPat = evaluateBoard(chessInstance.board());
+  if (standPat >= beta) {
+      return beta;
+  }
+  if (alpha < standPat) {
+      alpha = standPat;
+  }
+
+  const moves = chessInstance.moves({ verbose: true })
+      .filter(move => chessInstance.get(move.from) && chessInstance.get(move.to) && chessInstance.get(move.from).color !== chessInstance.get(move.to).color); // filter only capturing moves
+
+  for (let move of moves) {
+      chessInstance.move(move);
+      const score = -quiescenceSearch(chessInstance, -beta, -alpha);
+      chessInstance.undo();
+
+      if (score >= beta) {
+          return beta;
+      }
+      if (score > alpha) {
+          alpha = score;
+      }
+  }
+  
+  return alpha;
+  
+}
 
 function minimax(chessInstance, depth, alpha, beta) {
   const currentPlayer = chessInstance.turn();
   
 
   if (depth === 0) {
-      return evaluateBoard(chessInstance.board());
+    return quiescenceSearch(chessInstance, alpha, beta);
   }
   
   const moves = chessInstance.moves({ verbose: true });
@@ -42,7 +70,7 @@ function minimax(chessInstance, depth, alpha, beta) {
 
           // This is where you insert the logging code for maxEval:
           if (evalValue > maxEval) {
-              console.log(`New maxEval: ${evalValue} for move:`, move);
+              
               maxEval = evalValue;
           }
 
@@ -62,7 +90,7 @@ function minimax(chessInstance, depth, alpha, beta) {
 
           // This is where you insert the logging code for minEval:
           if (evalValue < minEval) {
-              console.log(`New minEval: ${evalValue} for move:`, move);
+              
               minEval = evalValue;
           }
 
