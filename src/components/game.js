@@ -3,7 +3,26 @@ import { Chessboard } from "react-chessboard";
 import { Chess } from "chess.js";
 import CustomDialog from "./CustomDialog";
 
+const [selectedOpening, setSelectedOpening] = useState(null);
+const [openingMoveIndex, setOpeningMoveIndex] = useState(0);
 
+const italianGameOpening = [
+  { from: 'e2', to: 'e4' },
+  { from: 'e7', to: 'e5' },
+  { from: 'g1', to: 'f3' },
+  { from: 'b8', to: 'c6' },
+  { from: 'f1', to: 'c4' }
+];
+
+const ruyLopezOpening = [
+  { from: 'e2', to: 'e4' },
+  { from: 'e7', to: 'e5' },
+  { from: 'g1', to: 'f3' },
+  { from: 'b8', to: 'c6' },
+  { from: 'f1', to: 'b5' }
+];
+
+const allOpenings = [italianGameOpening, ruyLopezOpening];
 
 const pieceValues = {
   'p': -1, 'r': -7, 'n': -5, 'b': -5, 'q': -20, 'k': -100,
@@ -165,36 +184,50 @@ function Game({ players, room, orientation, cleanup }) {
   const initiateAIBlackMove = useCallback(() => {
     setIsLoading(true);
     setTimeout(() => {
-      console.log("AI thinking...");
-      const bestMoveForBlack = getBestMove(chess);
-      console.log("AI's best move:", bestMoveForBlack);
+      let bestMoveForBlack;
+  
+      if (openingMoveIndex < selectedOpening.length) {
+        bestMoveForBlack = selectedOpening[openingMoveIndex];
+        setOpeningMoveIndex(prevIndex => prevIndex + 1);
+      } else {
+        console.log("AI thinking...");
+        bestMoveForBlack = getBestMove(chess);
+        console.log("AI's best move:", bestMoveForBlack);
+      }
+  
       if (bestMoveForBlack) {
         makeAMove({
           from: bestMoveForBlack.from,
           to: bestMoveForBlack.to,
           color: "b"
-      });
+        });
       }
       setIsLoading(false);
     }, 500);
-  }, [chess, makeAMove]);
+  }, [chess, makeAMove, openingMoveIndex, selectedOpening]);
   
   useEffect(() => {
-    if (chess.turn() === "b") {
-      initiateAIBlackMove();
-    }
-  }, [chess, initiateAIBlackMove]);
+    const randomIndex = Math.floor(Math.random() * allOpenings.length);
+    setSelectedOpening(allOpenings[randomIndex]);
+  }, []);
   
   function onDrop(sourceSquare, targetSquare) {
     // Only allow White pieces to be moved by the user
     if (chess.get(sourceSquare) && chess.get(sourceSquare).color === 'w') {
-      const moveData = {
-        from: sourceSquare,
-        to: targetSquare,
-        color: "w"
-      };
+      let chosenMove;
   
-      const move = makeAMove(moveData);
+      if (openingMoveIndex < selectedOpening.length) {
+        chosenMove = selectedOpening[openingMoveIndex];
+        if (chosenMove.from !== sourceSquare || chosenMove.to !== targetSquare) {
+          console.log("Invalid predefined opening move by user.");
+          return false;
+        }
+        setOpeningMoveIndex(prevIndex => prevIndex + 1);
+      } else {
+        chosenMove = { from: sourceSquare, to: targetSquare, color: "w" };
+      }
+  
+      const move = makeAMove(chosenMove);
   
       // If it's now Black's turn, let the AI make its move
       if (move && chess.turn() === "b") {
@@ -204,7 +237,7 @@ function Game({ players, room, orientation, cleanup }) {
       if (move === null) return false;
       return true;
     }
-    return false; // reject if not a white piece
+    return false;
   }
 
 
