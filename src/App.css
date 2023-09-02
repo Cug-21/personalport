@@ -7,6 +7,15 @@
   padding: 20px;
   background-color: #282c34;
   margin-bottom: 20px;
+  z-index: 1000;  /* any high value to keep it on top */
+  position: relative;
+  
+}
+
+@media (max-width: 768px) {
+  .carousel-item {
+    width: 150px; /* Or whatever size fits */
+  }
 }
 
 .Navbar a {
@@ -175,7 +184,9 @@ img {
 
 .carousel-wrapper {
   display: flex;
+  z-index: 1; 
   justify-content: center;
+  
   align-items: center;
   height: 20vh;
   margin-top: 6%;
