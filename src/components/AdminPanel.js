@@ -20,7 +20,8 @@ const AdminPanel = () => {
       setHighScores(newHighScores);
       localStorage.setItem('highScores', JSON.stringify(newHighScores));
     };
-  
+
+   
     return (
       <div>
         { isAuthenticated ? (
@@ -28,10 +29,11 @@ const AdminPanel = () => {
             <h1>Admin Panel</h1>
             <ul>
               {highScores.map((score, index) => (
-                <li key={index}>
-                  {score.name}: {score.score} 
+                <><li key={index}>
+                  {score.name}: {score.score}
                   <button onClick={() => deleteScore(index)}>Delete</button>
-                </li>
+                </li></>
+                
               ))}
             </ul>
           </>

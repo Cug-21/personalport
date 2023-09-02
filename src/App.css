@@ -6,22 +6,63 @@
 .Navbar {
   padding: 20px;
   background-color: #282c34;
+  margin-bottom: 20px;
 }
 
 .Navbar a {
   margin: 0 15px;
   color: white;
   text-decoration: none;
+  margin-bottom: 20px;
 }
 
 .navbar-item {
   margin: 0 15px;
   color: #282c34;
+  margin-bottom: 20px;
  
 }
 
 .Navbar a:hover {
   color: #ffcc00;  /* Changes the text color to red on hover */
+}
+
+.Navbar .carousel-container {
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  width: calc(200px * 5 + 10px * 2); /* Width for 5 images and 2 margins */
+  margin-bottom: 20px; /* Add bottom margin */
+}
+
+.Navbar .carousel-item-container {
+  display: flex;
+  transition: all 0.5s;
+}
+
+.Navbar .carousel-item {
+  flex: none;
+  width: 200px; 
+  margin-right: 10px;
+}
+
+.Navbar .arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.Navbar .arrow-left {
+  left: 0;
+}
+
+.Navbar .arrow-right {
+  right: 0;
 }
 
 .Resume, .About, .Projects {
@@ -137,7 +178,7 @@ img {
   justify-content: center;
   align-items: center;
   height: 20vh;
-  margin-top: 80px;
+  margin-top: 6%;
   margin-bottom: 80px;
 }
 

@@ -8,11 +8,23 @@ import ContactUs from './components/ContactUs';
 import Carousel from './Carousel';
 import img1 from './IMG_3982.JPG';
 import img2 from './IMG_4052.JPG';
+import img18 from './bent1.JPG';
 import img3 from './IMG_4064.JPG';
 import img4 from './IMG_4067.JPG';
 import img5 from './IMG_4093.jpg';
-import img6 from './SegretiConor.jpg';
-import img7 from './thomas.jpg';
+import img15 from './imag1.jpeg';
+import img16 from './imag3.jpeg';
+import img17 from './imag2.jpeg';
+import img7 from './image0.jpeg';
+import img8 from './image1.jpeg';
+import img9 from './image2.jpeg';
+import img10 from './image3.jpeg';
+import img11 from './image4.jpeg';
+import img12 from './image5.jpeg';
+import img13 from './image6.jpeg';
+import img14 from './image7.jpeg';
+
+import img19 from './bent2.JPG';
 import Board from './minesweeper/Board';
 import PetApp from './components/PetApp';
 import Shark from './components/Shark'; 
@@ -70,13 +82,26 @@ function App() {
   };
 
   const imageList = [
+    img17,
     img1,
     img2,
+    img10,
     img3,
+    img18,
     img4,
+    img12,
     img5,
-    img6,
+    img13,
     img7,
+    img8,
+    img9,
+    img17,
+    img16,
+    img15,
+    img11,
+    img14,
+    img19,
+    
   ];
 
   const trackMouse = (event) => {
