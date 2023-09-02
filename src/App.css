@@ -20,6 +20,10 @@
  
 }
 
+.Navbar a:hover {
+  color: #ffcc00;  /* Changes the text color to red on hover */
+}
+
 .Resume, .About, .Projects {
   padding: 50px 0;
   border-bottom: 1px solid #eee;
@@ -180,6 +184,10 @@ img {
   background-color: #282c34; /* Background color for dropdown items */
 }
 
+.dropdown-content div:hover {
+  background-color: #ffcc00;  /* Highlights the background red on hover */
+}
+
 .hamburger {
   width: 30px;
   height: 24px;
@@ -208,4 +216,55 @@ img {
 
 .hamburger-line:nth-child(3) {
   bottom: 0;
+}
+
+.leaderboard {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  font-family: 'Courier New', monospace; /* Choose a "digital" style font */
+}
+
+.leaderboard-title {
+  font-size: 24px;
+  border-bottom: 2px solid #ffcc00;
+  margin-bottom: 20px;
+}
+
+.leaderboard-table {
+  display: flex;
+  flex-direction: column;
+}
+
+.leaderboard-header, .leaderboard-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.leaderboard-header {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.rank, .name, .score {
+  flex: 1;
+  text-align: center;
+}
+
+.leaderboard-row {
+  border: 1px solid #333;
+  padding: 10px;
+  margin: 5px 0;
+  background: rgba(255, 255, 255, 0.1);
+  transition: background 0.3s;
+}
+
+.leaderboard-row:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+
+.Navbar a:hover .icon {
+  color: #ffcc00 !important;
 }

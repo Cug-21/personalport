@@ -1,0 +1,10 @@
+.Shark {
+    position: fixed;
+    width: 90px;
+    height: 90px;
+    object-fit: contain;  
+    object-position: center;
+    transition: 0.3s;
+    z-index: 10;
+    bottom: 0;
+}

@@ -1,0 +1,24 @@
+.About {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    font-family: 'Courier New', monospace;
+  }
+  
+  h2 {
+    font-size: 24px;
+    border-bottom: 2px solid #ffcc00;
+    margin-bottom: 20px;
+  }
+  .section-header h3 {
+    text-align: center;
+  }
+  
+  p {
+    line-height: 1.6;  /* improves readability */
+    text-align: center; /* aligns text both left and right, providing a clean look */
+    margin: 0 0 20px; 
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+
+  }

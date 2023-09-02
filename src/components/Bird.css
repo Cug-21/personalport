@@ -1,0 +1,8 @@
+.bird {
+    position: fixed;
+    width: 50px;
+    height: auto;
+    z-index: 10;
+    pointer-events: none;
+    transition: top 2s linear, left 2s linear, transform 2s linear; /* Updated */
+}

@@ -1,0 +1,45 @@
+.leaderboard {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    font-family: 'Courier New', monospace; /* Choose a "digital" style font */
+  }
+  
+  .leaderboard-title {
+    font-size: 24px;
+    border-bottom: 2px solid #ffcc00;
+    margin-bottom: 20px;
+  }
+  
+  .leaderboard-table {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .leaderboard-header, .leaderboard-row {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .leaderboard-header {
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  .rank, .name, .score {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .leaderboard-row {
+    border: 1px solid #333;
+    padding: 10px;
+    margin: 5px 0;
+    background: rgba(255, 255, 255, 0.1);
+    transition: background 0.3s;
+  }
+  
+  .leaderboard-row:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }

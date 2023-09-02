@@ -1,7 +1,7 @@
 import React from 'react';
 
 function PetSelection({ onPetSelect }) {
-    const pets = ["Cat", "Dog", "Fish", "Bird"];
+    const pets = ["Cat", "Kitten", "Fish", "Bird"];
 
     return (
         <div>
