@@ -108,6 +108,7 @@ function App() {
     setMousePos({
         x: event.clientX - 25, // Adjust so the center of the image is on the cursor
         y: event.clientY - 25
+        
     });
   }
 

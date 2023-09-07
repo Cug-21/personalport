@@ -186,11 +186,19 @@ img {
   display: flex;
   z-index: 1; 
   justify-content: center;
-  
+  position: relative;
   align-items: center;
-  height: 20vh;
+  height: 10vh;
   margin-top: 6%;
-  margin-bottom: 80px;
+  margin-bottom: 10%;
+}
+
+.difficulty-dropdown {
+  z-index: 1001;  /* Add a high z-index to ensure it appears on top */
+  font-size: 24px;
+  align-self: center;
+  position: relative;
+  justify-content: center;
 }
 
 .board {
@@ -269,6 +277,8 @@ img {
 .hamburger-line:nth-child(3) {
   bottom: 0;
 }
+
+
 
 .leaderboard {
   background-color: #1a1a1a;
