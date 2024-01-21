@@ -14,6 +14,8 @@ export default function ContactUs() {
     message: ''
   });
 
+  const [emailSent, setEmailSent] = useState(false);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -22,11 +24,13 @@ export default function ContactUs() {
     });
   };
 
+
   const handleSubmit = (e) => {
     e.preventDefault();
     emailjs.send('get_email', 'tem', formData)
       .then((result) => {
           console.log(result.text);
+          setEmailSent(true);
       }, (error) => {
           console.log(error.text);
       });
@@ -35,6 +39,7 @@ export default function ContactUs() {
   return (
     <div className="contact-form">
       <h2 className="contact-form-title">Contact Me!</h2>
+      {emailSent && <p>Email sent successfully!</p>}
       <form onSubmit={handleSubmit}>
         <input type="email" name="email" placeholder="Your Email" onChange={handleChange} className="input-field" />
         <input type="text" name="subject" placeholder="Subject" onChange={handleChange} className="input-field" />

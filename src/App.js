@@ -145,7 +145,7 @@ function App() {
           onMine={() => setActiveComponent('Minesweeper')}
           onAbout={() => setActiveComponent('About')}
           onResume={() => setActiveComponent('Resume')}
-          onProjects={() => setActiveComponent('Projects')}
+          onProjects={() => setActiveComponent('Apps')}
          
       
         />
@@ -158,7 +158,7 @@ function App() {
         
         {activeComponent === 'About' && <div className="About"><About /></div>}
         {activeComponent === 'Resume' && <div className="Resume"><Resume /></div>}
-        {activeComponent === 'Projects' && <div className="Projects"><Projects /></div>}
+        {activeComponent === 'Apps' && <div className="Apps"><Projects /></div>}
         {activeComponent === 'Minesweeper' && (
           <div className="Minesweeper">
             {/* Render the dropdown here */}
