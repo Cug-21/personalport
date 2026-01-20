@@ -15,7 +15,7 @@ function Navbar({ onAbout, onResume, onProjects, onGame, onMine, onPetSelect }) 
     return (
       <div className="Navbar">
         <div style={{ position: 'absolute', right: '10px', top: '10px' }}>
-          <a href="https://www.linkedin.com/in/conorsegreti/" target="_blank" rel="noreferrer">
+          {/* <a href="https://www.linkedin.com/in/conorsegreti/" target="_blank" rel="noreferrer">
             <FontAwesomeIcon className="icon" icon={faLinkedin} size="2x" style={{ margin: '5px', color: 'white' }} />
           </a>
           <a href="https://github.com/Cug-21/" target="_blank" rel="noreferrer">
@@ -23,7 +23,7 @@ function Navbar({ onAbout, onResume, onProjects, onGame, onMine, onPetSelect }) 
           </a>
           <a href="https://www.youtube.com/watch?v=IZUEnpFdguM" target="_blank" rel="noreferrer">
             <FontAwesomeIcon className="icon" icon={faYoutube} size="2x" style={{ margin: '5px', color: 'white' }} />
-          </a>
+          </a> */}
  
         </div>
         <div className="hamburger" onClick={toggleDropdown}>
