@@ -21,9 +21,7 @@ function Navbar({ onAbout, onResume, onProjects, onGame, onMine, onPetSelect }) 
           <a href="https://github.com/Cug-21/" target="_blank" rel="noreferrer">
             <FontAwesomeIcon className="icon" icon={faGithub} size="2x" style={{ margin: '5px', color: 'white' }} />
           </a>
-          <a href="https://www.youtube.com/watch?v=IZUEnpFdguM" target="_blank" rel="noreferrer">
-            <FontAwesomeIcon className="icon" icon={faYoutube} size="2x" style={{ margin: '5px', color: 'white' }} />
-          </a>
+ 
         </div>
         <div className="hamburger" onClick={toggleDropdown}>
           <div className="hamburger-line"></div>
