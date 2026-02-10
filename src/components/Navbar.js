@@ -12,6 +12,7 @@ function Navbar({ onAbout, onResume, onProjects, onGame, onMine, onPetSelect }) 
     setDropdownOpen(!isDropdownOpen);
   }
 
+  
     return (
       <div className="Navbar">
         <div style={{ position: 'absolute', right: '10px', top: '10px' }}>
